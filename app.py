@@ -50,9 +50,9 @@ if st.button("🔍 Predict Weather"):
     st.subheader("📊 Prediction Result")
 
     if prediction[0] == 1:
-        st.success("🌧️ Rain Expected")
+        st.success("🌧️ Cloudy, Rain Expected")
     else:
-        st.info("☀️ No Rain Expected")
+        st.info("☀️ Sunny, No Rain Expected")
 
     st.write(f"**Confidence:** {max(prob[0])*100:.2f}%")
 
