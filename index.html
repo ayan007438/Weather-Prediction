@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Prediction System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f6f9;
+    }
+    header {
+      background: #1e90ff;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background: #333;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+    }
+    section {
+      padding: 40px;
+      text-align: center;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      margin: 20px auto;
+      width: 80%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #1e90ff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🌦 Weather Prediction System</h1>
+  <p>AI-based weather forecasting project</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#predict">Predict</a>
+  <a href="#about">About</a>
+</nav>
+
+<section id="home">
+  <div class="card">
+    <h2>Welcome</h2>
+    <p>This project predicts weather using Machine Learning models.</p>
+  </div>
+</section>
+
+<section id="predict">
+  <div class="card">
+    <h2>Enter Weather Data</h2>
+    <input type="text" id="temp" placeholder="Temperature">
+    <input type="text" id="humidity" placeholder="Humidity">
+    <br>
+    <button onclick="predictWeather()">Predict</button>
+    <h3 id="result"></h3>
+  </div>
+</section>
+
+<section id="about">
+  <div class="card">
+    <h2>About Project</h2>
+    <p>Built using Python, Machine Learning, and deployed via a web interface.</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Weather Prediction System</p>
+</footer>
+
+<script>
+  function predictWeather() {
+    let temp = document.getElementById("temp").value;
+    let humidity = document.getElementById("humidity").value;
+
+    if(temp === "" || humidity === "") {
+      document.getElementById("result").innerText = "Please enter all values";
+      return;
+    }
+
+    // Dummy prediction logic (replace with API later)
+    let prediction = (temp > 30 && humidity > 60) ? "Rainy" : "Sunny";
+
+    document.getElementById("result").innerText = "Prediction: " + prediction;
+  }
+</script>
+
+</body>
+</html>
