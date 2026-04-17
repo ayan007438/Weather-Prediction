@@ -111,7 +111,31 @@
     }
 
     // Dummy prediction logic (replace with API later)
-    let prediction = (temp > 30 && humidity > 60) ? "Rainy" : "Sunny";
+    <script>
+async function predictWeather() {
+    let temp = document.getElementById("temp").value;
+    let humidity = document.getElementById("humidity").value;
+
+    if(temp === "" || humidity === "") {
+        document.getElementById("result").innerText = "Please enter all values";
+        return;
+    }
+
+    let response = await fetch("/predict", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            temperature: temp,
+            humidity: humidity
+        })
+    });
+
+    let data = await response.json();
+    document.getElementById("result").innerText = "Prediction: " + data.prediction;
+}
+</script>
 
     document.getElementById("result").innerText = "Prediction: " + prediction;
   }
